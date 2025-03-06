@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff6;
+            text-align: center;
+            padding: 50px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter your details!</h1>
+    <form id="personalForm">
+        <input type="text" id="name" placeholder="Enter your name" required><br>
+        <input type="number" id="age" placeholder="Enter your age" required><br>
+        <input type="text" id="city" placeholder="Enter your city" required><br><br>
+        <button type="button" onclick="generateMessage()">Submit</button>
+    </form>
+
+    <div class="message" id="message"></div>
+
+    <script>
+        function generateMessage() {
+            // Get the values from the form
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const city = document.getElementById('city').value;
+
+            // Create the message
+            if (name && age && city) {
+                const message = `Hello ${name} from ${city}, aged ${age}! You are so cute and your intelligent !`;
+                document.getElementById('message').innerText = message;
+            } else {
+                document.getElementById('message').innerText = 'Please fill in all fields.';
+            }
+        }
+    </script>
+
+</body>
+</html>
